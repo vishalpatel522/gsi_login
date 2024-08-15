@@ -15,9 +15,7 @@ class PlgSystemGsi_Login extends CMSPlugin
         $user = Factory::getUser();
 
         if ($user->guest) {
-
             $app = Factory::getApplication();
-
             $doc = Factory::getDocument();
             $baseUri = Uri::base();
             $loginUri = $this->params->get('login_uri', '');
@@ -39,7 +37,9 @@ class PlgSystemGsi_Login extends CMSPlugin
                     $body = str_replace('</body>', $script . '</body>', $body);
                     $app->setBody($body);
                 } else {
-                    $doc->addCustomTag($script);
+                    if (method_exists($doc, 'addCustomTag')) {
+                        $doc->addCustomTag($script);
+                    }
                 }
             }
         }
