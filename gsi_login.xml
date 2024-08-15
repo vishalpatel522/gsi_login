@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" version="5.0" method="upgrade">
+    <name>PLG_SYSTEM_GSI_LOGIN</name>
+    <author>Vishal</author>
+    <creationDate>2024-08-09</creationDate>
+    <version>1.0.0</version>
+    <description>Google Sign-In Integration for Non-Logged-In Users on JomSocial</description>
+    <files>
+        <filename plugin="gsi_login">gsi_login.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="client_id"
+                    type="text"
+                    label="Google Client Id"
+                    description="Enter the Google Client ID."
+                    default=""
+                />
+                <field
+                    name="login_uri"
+                    type="text"
+                    label="Callback URI"
+                    description="Enter the URI to handle Google Sign-In."
+                    default=""
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
